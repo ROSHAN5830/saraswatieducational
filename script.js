@@ -47,6 +47,7 @@ ScrollReveal({
         backDelay:2000,
         loop:true
     });
+    
     let currentIndex = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
