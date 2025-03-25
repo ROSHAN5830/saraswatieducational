@@ -176,6 +176,45 @@ section {
 }
 
 
+@media screen and (max-width: 768px) {
+    /* Let the container take full available width */
+    .image-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* For mobile, we recalculate slider widths based on 4 images at 100vw each */
+    .image-slider {
+        /* Duplicate the 4-image set: 2 x 400vw = 800vw */
+        width: 800vw;
+        overflow: hidden;
+        /* Override the desktop animation with our mobile one */
+        animation: smoothSlideMobile 20s linear infinite;
+    }
+
+    /* One set of slides spans 400vw (4 images * 100vw) */
+    .image-slider .slides {
+        display: flex;
+        width: 400vw;
+        gap: 0;
+    }
+
+    /* Each image takes the full viewport width */
+    .image-slider img {
+        width: 100vw;
+        max-width: none;
+        height: auto;  /* adjust height as needed; remove fixed height */
+        flex-shrink: 0;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+/* Mobile-specific keyframes: slide one set (400vw) over the full cycle */
+@keyframes smoothSlideMobile {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-400vw); }
+}
 
 
 .home-content h3 {
@@ -1030,4 +1069,3 @@ ul li a:hover {
     transform: translateX(-50%);
     border-radius: 5px;
 }
-
